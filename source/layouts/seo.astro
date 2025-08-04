@@ -1,0 +1,83 @@
+---
+import type { ComponentProps } from "astro/types";
+import { SEO } from "astro-seo";
+
+import { xTwitter } from "@lib/data/socials";
+import {
+  DEFAULT_LOCALE,
+  SUPPORTED_LOCALES,
+  TRANSLATIONS,
+  getLocaleRoute,
+} from "@modules/i18n";
+
+type Props = Pick<
+  ComponentProps<typeof SEO>,
+  "title" | "description" | "noindex" | "nofollow"
+> & {
+  title: string;
+  description: string;
+  canonicalPathname: string;
+  site?: string;
+};
+
+const { locale, translations } = Astro.locals;
+const {
+  title,
+  description,
+  canonicalPathname,
+  site = Astro.site?.origin,
+  ...props
+} = Astro.props;
+
+// All the others that are not the current one.
+const alternateLocales = SUPPORTED_LOCALES.filter((lang) => lang !== locale);
+const alternateLocaleTerritories = SUPPORTED_LOCALES.map((lang) => {
+  return TRANSLATIONS[lang].meta.code;
+});
+
+const makeProductionUrl = (pathname: string) => `${site}${pathname}`;
+
+const cleanTitle = title.trim();
+const cleanDescription = description.replace(/\s+/g, " ").trim();
+const canonicalURL = makeProductionUrl(
+  getLocaleRoute(DEFAULT_LOCALE, canonicalPathname),
+);
+---
+
+<SEO
+  title={cleanTitle}
+  description={cleanDescription}
+  charset="utf-8"
+  languageAlternates={alternateLocales.map((locale) => ({
+    href: makeProductionUrl(getLocaleRoute(locale, canonicalPathname)),
+    hrefLang: locale,
+  }))}
+  canonical={canonicalURL}
+  openGraph={{
+    basic: {
+      title: cleanTitle,
+      type: "website",
+      image: makeProductionUrl(`/og-${locale}.png`),
+      url: canonicalURL,
+    },
+    optional: {
+      description: cleanDescription,
+      locale: translations.meta.code,
+      localeAlternate: alternateLocaleTerritories,
+    },
+    image: {
+      width: 1200,
+      height: 630,
+      alt: translations.meta.ogAlt,
+    },
+  }}
+  twitter={{
+    card: "summary_large_image",
+    creator: `@${xTwitter.href.slice(xTwitter.href.lastIndexOf("/") + 1)}`,
+    title: cleanTitle,
+    image: makeProductionUrl(`/og-${locale}.png`),
+    imageAlt: translations.meta.ogAlt,
+    description: cleanDescription,
+  }}
+  {...props}
+/>

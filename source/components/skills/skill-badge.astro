@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { cn } from "@lib/utils/shadcn";
+import { skills, type SkillName } from "@lib/data/skills";
+import { Badge, type BadgeProps } from "@components/base";
+
+export type Props = BadgeProps & {
+  skill: SkillName;
+};
+
+const { translations } = Astro.locals;
+const { skill, class: clazz, ...props } = Astro.props;
+const data = skills.find((s) => s.name === skill)!;
+---
+
+<Badge
+  {...props}
+  class={cn(
+    "select-none space-x-2 whitespace-nowrap px-4 py-2 font-semibold",
+    clazz,
+  )}
+>
+  <Icon
+    name={data.icon}
+    class="size-4"
+    is:inline
+  />
+  <span
+    >{
+      data.i18nKey in translations.skills
+        ? translations.skills[data.i18nKey as keyof typeof translations.skills]
+        : data.name
+    }</span
+  >
+</Badge>

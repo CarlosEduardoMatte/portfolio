@@ -1,0 +1,348 @@
+---
+import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { HTMLAttributes } from "astro/types";
+
+import SkillBadge from "@components/skills/skill-badge.astro";
+import { Link, Video } from "@components/base";
+import { cn } from "@lib/utils/shadcn";
+
+import type { ProjectStaticData } from "../lib/types";
+import { getTranslation } from "@modules/i18n";
+
+type Props = Omit<ProjectStaticData, "featured" | "year"> &
+  HTMLAttributes<"article"> & {
+    name: string;
+    headline: string;
+    preview: ImageMetadata;
+  };
+
+const {
+  name,
+  headline,
+  url,
+  showcaseUrl,
+  relatedSkills,
+  preview,
+  video,
+  repository,
+  ...props
+} = Astro.props;
+
+const { locale } = Astro.locals;
+const { class: clazz, ...articleProps } = props;
+---
+
+<script>
+  const projectPreviews = [
+    ...document.querySelectorAll("article[data-project] img"),
+  ];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const { target } = entry;
+        const article = target.closest("article");
+
+        if (entry.isIntersecting) {
+          article?.classList.add("intersecting");
+        } else {
+          article?.classList.remove("intersecting");
+        }
+      });
+    },
+    {
+      threshold: 1,
+    },
+  );
+
+  projectPreviews.forEach((preview) => {
+    observer.observe(preview);
+  });
+</script>
+
+<article
+  data-project={name}
+  class={cn(
+    "relative flex flex-col-reverse bg-background items-center xl:grid xl:grid-cols-12 xl:grid-rows-1",
+    clazz,
+  )}
+  {...articleProps}
+>
+  <div
+    class="flex flex-col rounded-xl border px-7 py-6 md:px-10 md:py-8 xl:col-start-1 xl:col-end-11 xl:row-start-1 xl:min-h-96 *:xl:max-w-xl *:2xl:max-w-2xl"
+  >
+    <header class="mt-2 py-2 xl:mt-0">
+      <div
+        class="inline-flex w-full flex-col items-center xs:w-auto xs:flex-row"
+      >
+        <h3
+          class="inline text-balance text-center font-header text-2xl font-semibold text-primary xs:whitespace-nowrap xs:text-left"
+        >
+          {name}
+        </h3>
+
+        {
+          (url || repository || showcaseUrl) && (
+            <div
+              data-links
+              class="ml-2 mt-2 inline-flex items-center gap-1 xs:mt-0"
+            >
+              {showcaseUrl && (
+                <Link
+                  href={showcaseUrl}
+                  label={`${getTranslation("sections.projects.showcaseLinkLabel")} "${name}"`}
+                  targetBlank
+                  class="aspect-square content-center rounded-md p-2 text-xl font-semibold text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+                  withTooltip={{
+                    content: getTranslation(
+                      "sections.projects.showcaseLink",
+                      locale,
+                    ),
+                    placement: "bottom",
+                  }}
+                >
+                  <Icon
+                    class="size-5 xs:size-6"
+                    name="lucide:external-link"
+                  />
+                </Link>
+              )}
+
+              {repository && (
+                <Link
+                  href={repository}
+                  label={`${getTranslation("sections.projects.sourceCodeLinkLabel")} "${name}"`}
+                  targetBlank
+                  class="aspect-square content-center rounded-md p-2 text-xl font-semibold text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+                  withTooltip={{
+                    content: getTranslation(
+                      "sections.projects.sourceCode",
+                      locale,
+                    ),
+                    placement: "bottom",
+                  }}
+                  data-github
+                >
+                  <Icon
+                    class="size-5 xs:size-6"
+                    name="lucide:github"
+                  />
+                </Link>
+              )}
+              {url && (
+                <Link
+                  href={url}
+                  label={`${getTranslation("sections.projects.liveDemoLinkLabel")} "${name}"`}
+                  targetBlank
+                  class="aspect-square content-center rounded-md p-2 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+                  withTooltip={{
+                    content: getTranslation(
+                      "sections.projects.liveDemo",
+                      locale,
+                    ),
+                    placement: "bottom",
+                  }}
+                >
+                  <Icon
+                    class="size-5 xs:size-6"
+                    name="lucide:external-link"
+                  />
+                </Link>
+              )}
+            </div>
+          )
+        }
+      </div>
+
+      <p
+        class="mt-2 text-balance text-center text-sm text-foreground xs:text-pretty xs:text-left md:text-base"
+      >
+        {headline}
+      </p>
+    </header>
+
+    <div class="mt-8 flex grow flex-col justify-between space-y-6">
+      <slot name="description" />
+      <ul class="flex flex-wrap gap-4">
+        {
+          relatedSkills.map((skill) => (
+            <li>
+              <SkillBadge
+                class="font-semibold text-foreground/90 text-2xs sm:text-xs"
+                skill={skill}
+                hoverGlow
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="relative -mb-4 max-w-[90%] rounded-xl md:max-w-[80%] xl:col-start-7 xl:col-end-[-1] xl:row-start-1 xl:my-2.5 xl:ml-5 xl:max-w-none xl:content-center"
+    data-project-preview
+  >
+    <Picture
+      data-project-image
+      class="pointer-events-none relative rounded-xl"
+      src={preview}
+      formats={["avif", "webp", "png"]}
+      alt={`Preview of the project "${name}"`}
+    />
+
+    {
+      video && (
+        <Video
+          data-project-video
+          class="absolute inset-x-0 bottom-0 mx-auto size-[80%]"
+          videoClass="rounded-sm shadow-xl"
+          muted
+          loop
+          webm={video.webm}
+          mp4={video.mp4}
+          poster={video.poster}
+          play="onview"
+        />
+      )
+    }
+  </div>
+
+  <slot />
+</article>
+
+<style>
+  h3::after {
+    content: " | ";
+    color: theme("colors.muted.DEFAULT");
+
+    display: none;
+  }
+
+  @media screen(xs) {
+    h3:has(+ div[data-links])::after {
+      display: inline-block;
+    }
+  }
+
+  article.not-supports-animation-timeline {
+    [data-project-preview]:has(video) [data-project-image],
+    [data-project-preview]:has(video)::after {
+      transition:
+        opacity 0.3s ease-out,
+        transform 0.3s ease-out;
+    }
+
+    [data-project-preview]:has(video) [data-project-video] {
+      transition:
+        opacity 0.3s ease-out,
+        transform 0.3s ease-out;
+    }
+
+    &.intersecting {
+      [data-project-preview]:has(video) [data-project-image],
+      [data-project-preview]:has(video)::after {
+        opacity: 1;
+        transform: perspective(250px) rotateX(10deg) translateY(-5%)
+          translateZ(0);
+      }
+
+      [data-project-preview]:has(video) [data-project-video] {
+        opacity: 1;
+        transform: translateY(calc(-10% - 5px));
+      }
+    }
+  }
+
+  article:not(.not-supports-animation-timeline) {
+    [data-project-preview]:has(video) [data-project-image],
+    [data-project-preview]:has(video)::after {
+      animation: preview linear both;
+      animation-timeline: view(calc(10% + theme("height.header")));
+    }
+
+    [data-project-preview]:has(video) [data-project-video] {
+      animation: preview-video linear both;
+      animation-timeline: view(calc(10% + theme("height.header")));
+    }
+  }
+
+  :global([data-github-link] path) {
+    transition: fill 0.15s ease-out;
+    fill: theme("colors.primary.DEFAULT");
+  }
+
+  :global([data-github-link]:hover path) {
+    fill: theme("colors.primary.foreground");
+  }
+
+  [data-project-preview]:has(video) [data-project-video] {
+    opacity: 0;
+    z-index: 10;
+  }
+
+  [data-project-preview]::after {
+    --from-opacity: 0;
+
+    content: "";
+    inset: 0;
+    position: absolute;
+    display: block;
+
+    width: calc(100% + 10px);
+    height: 100%;
+    bottom: 0;
+
+    background-image: linear-gradient(
+      to bottom,
+      transparent 10%,
+      theme("colors.background / 50%") 25%,
+      theme("colors.background") 95%
+    );
+
+    opacity: 0;
+  }
+
+  @keyframes preview {
+    entry 50% {
+      opacity: var(--from-opacity, 1);
+      transform: none;
+    }
+    contain 20% {
+      opacity: 0.8;
+      transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+    }
+
+    contain 90% {
+      opacity: 0.8;
+      transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+    }
+
+    exit 50% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes preview-video {
+    entry 50% {
+      opacity: 0;
+      transform: none;
+    }
+    contain 20% {
+      opacity: 1;
+      transform: translateY(calc(-10% - 5px));
+    }
+
+    contain 90% {
+      opacity: 1;
+      transform: translateY(calc(-10% - 5px));
+    }
+
+    exit 50% {
+      opacity: 0;
+      transform: none;
+    }
+  }
+</style>

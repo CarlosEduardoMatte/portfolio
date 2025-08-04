@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { translations } = Astro.locals;
+const t = translations.footer;
+
+const [beforeHeart, afterHeart] = t.note.split("{heart}");
+---
+
+<footer
+  class="relative z-10 mx-auto max-w-screen-xl border-t border-border py-6"
+>
+  <p
+    class="w-full text-balance px-4 text-center text-sm"
+    data-footer-note
+  >
+    <span set:html={beforeHeart} />
+    <span class="sr-only">{translations.misc.loveIconSr}</span>
+    <Icon
+      class="mx-px mb-px inline animate-beat"
+      name="heart"
+    />
+    <span set:html={afterHeart} />
+  </p>
+</footer>
+
+<style>
+  :global([data-footer-note] a) {
+    color: theme("colors.primary.DEFAULT");
+
+    text-decoration: underline;
+    text-decoration-color: theme("colors.primary.DEFAULT");
+    text-underline-offset: 0.15em;
+
+    font-weight: 500;
+  }
+
+  :global([data-footer-note] strong) {
+    font-weight: 900;
+  }
+</style>

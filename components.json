@@ -1,0 +1,12 @@
+{
+  "style": "default",
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "source/styles/theme.css",
+    "baseColor": "slate"
+  },
+  "aliases": {
+    "components": "@app/components",
+    "utils": "@app/lib/utils/shadcn"
+  }
+}

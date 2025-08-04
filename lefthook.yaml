@@ -1,0 +1,10 @@
+# pre-commit:
+# commands:
+# check:
+# glob: "*.{js,ts,jsx,tsx,.d.ts,json,astro}"
+# run: bunx eslint . && bunx prettier --check .
+
+commit-msg:
+  commands:
+    lint-commit:
+      run: bun x commitlint --edit

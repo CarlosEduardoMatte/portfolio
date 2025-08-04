@@ -1,0 +1,193 @@
+---
+import type { GetStaticPaths } from "astro";
+import { Icon } from "astro-icon/components";
+
+import { Page, Header, Footer } from "@app/layouts";
+import { Work, Projects, About, Hero, Contact } from "@app/sections";
+import { createStaticPathsHandler } from "@modules/i18n";
+
+import { Toaster } from "@components/ui/react";
+import ScrollToTop from "@components/scroll-to-top.svelte";
+import ParticlesCanvas from "@components/particles/particle-canvas.astro";
+
+export const getStaticPaths =
+  createStaticPathsHandler() satisfies GetStaticPaths;
+
+const { translations: t } = Astro.locals;
+const viewTransition = {
+  old: {
+    name: "fade-out",
+    duration: "0.2s",
+    easing: "ease-in",
+    fillMode: "forwards",
+  },
+
+  new: {
+    name: "fade-in",
+    delay: "0.3s",
+    duration: "0.2s",
+    easing: "ease-out",
+    fillMode: "forwards",
+  },
+};
+
+const animation = {
+  forwards: viewTransition,
+  backwards: viewTransition,
+};
+---
+
+<script>
+  import { initLenis } from "@lib/client/scroll";
+  import tippy from "tippy.js";
+
+  document.addEventListener("astro:page-load", () => {
+    // Enable smooth-scrolling and hydrate tippy tooltips.
+    initLenis();
+    tippy("[data-tippy-content]", {
+      placement: "right",
+      offset: [0, 16],
+      animation: "scale",
+      inertia: true,
+    });
+  });
+</script>
+
+<Page
+  class="relative"
+  withNoScriptFallback
+  withViewTransitions
+  transition:name="body"
+  transition:animate={animation}
+  seo={{
+    title: t.meta.title,
+    description: t.meta.description,
+    canonicalPathname: "/",
+  }}
+>
+  <div class="animate-fade-down opacity-0 animate-delay-200">
+    <Header class="sticky overflow-x-auto fold:overflow-x-clip" />
+
+    <main
+      vaul-drawer-wrapper
+      class="z-0 space-y-36 pt-16 lg:space-y-48"
+    >
+      <Hero />
+      <Work />
+      <Projects />
+      <About />
+      <Contact />
+    </main>
+
+    <Footer />
+  </div>
+
+  <div class="pointer-events-none fixed top-0 z-50 h-dvh w-dvw">
+    <ScrollToTop
+      name={t.misc.scrollToTop}
+      class="pointer-events-auto absolute -bottom-32 right-0 m-6 aspect-square size-12 min-h-12 min-w-12 rounded-full lg:m-12 xl:size-16 xl:min-h-16 xl:min-w-16 xl:p-2"
+      aria-label={t.misc.scrollToTop}
+      data-tippy-content={t.misc.scrollToTop}
+      data-tippy-placement="top"
+      data-scroll-to-top
+      client:visible
+    >
+      <Icon
+        class="aspect-square size-6 min-h-6 min-w-6 xl:size-8"
+        name="lucide:arrow-up"
+        is:inline
+      />
+    </ScrollToTop>
+  </div>
+
+  <div
+    data-particles
+    class="pointer-events-none absolute inset-0 top-0 -z-50 mx-auto w-full max-w-screen-lg"
+  >
+    <ParticlesCanvas quantity={70} />
+  </div>
+
+  <!-- 
+    This is a custom client directive that hydrates the 
+    component when an event is fired on the document. 
+
+    Because the toaster is a fixed element, client:visible 
+    (which would be the most appropiate) fires right away.
+    As we only use toasts on the contact section, we can hydrate 
+    it when the contact section is hydrated, via a custom event.
+  -->
+  <Toaster client:event="contact-form:ready" />
+</Page>
+
+<style>
+  :global(body::before) {
+    position: absolute;
+    content: "";
+
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+
+    background-image: url("/pattern.svg");
+    background-position-y: top;
+    background-position-x: 40%;
+    background-repeat: no-repeat;
+    background-blend-mode: difference;
+  }
+
+  :global(::view-transition-new(body)) {
+    opacity: 0;
+  }
+
+  [data-scroll-to-top] {
+    animation: reveal-up 0.6s forwards;
+    animation-timeline: scroll();
+    animation-range: 100px 40vh;
+  }
+
+  [data-scroll-progress] {
+    transform-origin: left;
+
+    animation: scaleX linear both;
+    animation-timeline: scroll();
+  }
+
+  @keyframes reveal-up {
+    to {
+      bottom: 0;
+    }
+  }
+
+  @keyframes scaleX {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  [data-particles] {
+    height: 60vh;
+    height: 60lvh;
+  }
+
+  @media (min-width: 540px) {
+    [data-particles] {
+      height: 50vh;
+      height: 50lvh;
+    }
+  }
+
+  @media screen(lg) {
+    :global(body) {
+      background-position-x: 50%;
+    }
+
+    [data-particles] {
+      height: 40vh;
+      height: 40lvh;
+    }
+  }
+</style>

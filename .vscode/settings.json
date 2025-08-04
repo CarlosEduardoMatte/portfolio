@@ -1,0 +1,62 @@
+{
+  "[javascript][typescript][json][astro][css][svelte]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "explorerExclude.backup": {},
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "css.lint.unknownAtRules": "ignore",
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.direnv": true,
+    "**/node_modules": true,
+    "**/.astro": true
+  },
+
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  "biome.enabled": false,
+  "eslint.enable": true,
+  "eslint.format.enable": false,
+  "eslint.experimental.useFlatConfig": true,
+
+  "prettier.enable": true,
+  "prettier.documentSelectors": [
+    "**/*.astro",
+    "**/*.svelte",
+    "**/.js",
+    "**/.jsx",
+    "**/.ts",
+    "**/.tsx",
+    "**/.json",
+    "**/.css",
+    "**/.glsl"
+  ],
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "astro",
+    "svelte"
+  ]
+}

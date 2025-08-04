@@ -1,0 +1,51 @@
+---
+import { type Locale } from "@modules/i18n";
+
+import ProjectCard from "./project-card.astro";
+import type { ProjectData } from "../lib/types";
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"ul"> & {
+  projects: ProjectData[];
+  locale: Locale;
+};
+
+const { projects, locale, ...props } = Astro.props;
+---
+
+<ul {...props}>
+  {
+    projects.map(({ name, headline, description, featured, ...staticData }) => {
+      const desc = description(locale);
+      const paragraphs = Array.isArray(desc) ? desc : [desc];
+
+      return (
+        <li>
+          <ProjectCard
+            name={name(locale)}
+            headline={headline(locale)}
+            {...staticData}
+          >
+            <Fragment slot="description">
+              {paragraphs.map((paragraph) => (
+                <p
+                  data-project-description
+                  class="text-pretty pr-0 text-sm text-foreground/70 md:text-base xl:pr-16"
+                  set:html={paragraph}
+                />
+              ))}
+            </Fragment>
+          </ProjectCard>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  :global([data-project-description] a) {
+    text-decoration: underline;
+    text-decoration-color: theme("colors.primary.DEFAULT");
+    text-underline-offset: 0.15em;
+  }
+</style>

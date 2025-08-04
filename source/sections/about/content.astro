@@ -1,0 +1,41 @@
+---
+import { Section } from "@app/layouts";
+
+import AtWork from "./components/at-work.astro";
+import Education from "./components/education.astro";
+import PersonalSide from "./components/personal-side.astro";
+import Location from "./components/location.astro";
+
+const { translations } = Astro.locals;
+const t = translations.sections.about;
+---
+
+<Section
+  order={3}
+  id={t.id}
+  title={t.title}
+  class="mx-auto max-w-screen-xl px-4 xs:px-6 sm:px-8"
+>
+  <div
+    class:list={[
+      "my-6 grid grid-cols-10 justify-center gap-6 sm:mx-4",
+      "*:overflow-clip *:rounded-xl *:border *:bg-background",
+    ]}
+  >
+    <AtWork
+      class="relative col-span-10 col-start-1 px-6 pb-0 pt-6 md:px-8 md:pt-8 lg:col-span-6"
+    />
+
+    <PersonalSide
+      class="col-span-10 col-start-1 p-6 md:p-8 lg:col-span-4 lg:col-start-7"
+    />
+
+    <Location
+      class="col-span-10 col-start-1 p-6 md:p-8 [@media(width<=880px)]:@container [@media(width>=880px)]:col-span-4"
+    />
+
+    <Education
+      class="col-span-10 col-start-1 p-6 md:p-8 lg:col-span-6 lg:col-start-5 [@media(width>=880px)]:col-span-6 [@media(width>=880px)]:col-start-5"
+    />
+  </div>
+</Section>

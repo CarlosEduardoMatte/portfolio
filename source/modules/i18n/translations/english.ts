@@ -1,0 +1,471 @@
+import {
+  bold,
+  italic,
+  link,
+  strong,
+  small,
+  quote,
+  styled,
+} from "../lib/helpers/html";
+import { getAdobeLinkStyle } from "../lib/helpers/style";
+
+/** The english strings for the website. */
+export const english = {
+  meta: {
+    name: "English",
+    locale: "en",
+    code: "en-US",
+
+    routes: {
+      archive: "archive",
+    },
+
+    title: "Ivan Porto | Software Developer",
+    description: `
+      Hey! I'm Ivan Porto, a software developer specialized in game development, yet also passionate about 
+      developing any kind of software. Skilled both in backend and frontend. Fluent in Catalan, Spanish, and English.
+    `,
+
+    ogAlt:
+      "Hey! I'm Ivan Porto, Software Developer - An image with a dark gradient background and an avatar.",
+  },
+
+  misc: {
+    scrollToTop: "Scroll To Top",
+    language: "Language",
+    loveIconSr: "Love",
+    newTab: "Opens in a new tab",
+    linkTo: "Link to",
+  },
+
+  socials: {
+    github: "GitHub",
+    linkedIn: "LinkedIn",
+    xTwitter: "X (Twitter)",
+    resume: "Resume",
+    email: "Email",
+    bento: "Bento",
+    discord: "Discord",
+    threads: "Threads",
+    emailAddress: "carloseduardomatte656@gmail.com",
+  },
+
+  pages: {
+    notfound: {
+      meta: {
+        title: "404: Page Not Found - Ivan Porto | Software Developer",
+        description: "The page you're looking for doesn't exist.",
+      },
+
+      headline: "Oops! It seems you're lost.",
+      text: "The page you're looking for doesn't exist.",
+      back: "Back to the main page",
+      label: "Main Page",
+    },
+
+    archive: {
+      meta: {
+        title: "Ivan Porto | Archive",
+        description: "A list with the most noteworthy projects I've worked on.",
+      },
+
+      heading: "Projects Archive",
+      headline:
+        "Here is listed all the stuff I've worked on that I consider to be worth mentioning.",
+
+      whatAreShowcasesLg: `${quote(strong("Showcase"))} links are projects that aren't live, but can be downloaded and tested.`,
+      whatAreShowcasesSm: `The links prefixed with a ${quote("*")} are ${strong("showcases")} (projects that aren't live, but can be downloaded and tested).`,
+
+      homepageLinkLabel: "Homepage",
+      homepageLinkText: "Go back",
+
+      table: {
+        headers: {
+          year: "Year",
+          project: "Project",
+          description: "Description",
+          builtWith: "Built with",
+          links: "Links",
+        },
+
+        showcaseLink: "Showcase",
+        codeLink: "Code",
+        liveLink: "Live",
+      },
+    },
+  },
+
+  noscript: {
+    headline: `Oops! It seems that ${strong("JavaScript")} is disabled in your browser.`,
+    message: `This site ${strong("requires it")} for some content ${strong("to be displayed correctly")}.
+      Please enable it or dismiss this message by clicking the button below, but some elements may 
+      not be shown as expected.`,
+
+    dismissText: "I understand, show me the website",
+    hint: small(
+      "In case you're wondering, no, this button does not use JavaScript.",
+    ),
+  },
+
+  skills: {
+    // In english these are redundant, but in other languages they might be different.
+    // If we dont include them TypeScript complains about the translations not having the same keys.
+    "teamwork": "Teamwork",
+    "analytical-thinking": "Analytical Thinking",
+    "communication": "Communication",
+  },
+
+  sections: {
+    hero: {
+      headline: {
+        content: `I'm a ${strong("software")} developer.`,
+      },
+
+      greeting: "Hey! I'm Ivan Porto",
+      introduction: `
+        Specialized in game development, yet also passionate about developing any kind of software. With
+        ${bold("6+&nbsp;years of coding expertise")}, I am currently seeking to leverage my 
+        ${strong("4+&nbsp;years of professional experience")} to transition into ${bold("backend development")}.
+      `,
+
+      introductionEmployed: `
+        Specialized in game development, yet also passionate about developing any kind of software. Currently 
+        working at ${link("https://adobe.com", strong(styled("Adobe", getAdobeLinkStyle())))} as a ${strong("Junior Software Developer")}, a position
+        I started in November 2024, where I will be contributing to ${link("https://business.adobe.com/es/products/magento/magento-commerce.html", bold(styled("Adobe Commerce", getAdobeLinkStyle())))}.
+      `,
+
+      statusLabel: "Available for work",
+    },
+
+    experience: {
+      name: "Experience",
+      id: "experience",
+      title: "Where I've worked",
+
+      jobs: {
+        codelearn: {
+          title: "Computer Science Educator for Kids and Teens",
+          location: "Barcelona, Spain",
+          at: "Codelearn",
+
+          description: [
+            `${quote("There's no better way to learn than to teach")}`,
+
+            `Weekly guided ${strong("20+ students")} through a broad range of computer science topics
+            ranging from basic programming to advanced subjects such as ${strong("Python")}, ${strong("JavaScript")},
+            ${strong("SQL")}, ${strong("C++")}, and many more. My role involved ${bold("helping the students navigate various courses")}
+            available on an internal e-learning platform, providing assistance with challenges and ensuring an optimal use of the interactive learning tools available.`,
+
+            `${bold("Participated in extracurricular teaching at local schools")} and ${strong("received positive parental feedback")},
+            as a result of an improvement in their children's academic performance.`,
+          ],
+        },
+
+        gilab: {
+          title: "Unity Game Developer",
+          location: "Girona, Spain",
+          at: "GILAB (University of Girona)",
+
+          description: [
+            `Transitioned from an internship to a primary role within a research lab at my 
+            university, and in collaboration with a local hospital. My role was to develop a 
+            ${strong("virtual-reality rehabilitation game")} for stroke patients. Utilizing the 
+            (now Meta) Oculus Quest VR headset and its hand tracking capabilities, our project aimed 
+            to create ${bold("immersive therapeutic experiences")}, by developing a variety of exercises 
+            ${strong("tailored to address specific mobility issues")}.`,
+
+            `The project also served as the ${strong("thesis for my degree")} and was recognized with 
+            the ${bold("“Scholarship for Transfer, Innovation and Entrepreneurship”")} (BTI) during 2021-2022, 
+            as a result of a partnership between the university and ${quote("Santander Universidades")}.`,
+          ],
+        },
+      },
+    },
+
+    projects: {
+      name: "Projects",
+      id: "projects",
+      title: "Some of my favorite projects",
+
+      buttonReveal: "What's next?",
+      currentProject: "On what I'm currently working?",
+      seeMore: "See more of my projects in",
+      archiveText: "the archive",
+
+      sourceCode: "Source Code",
+      liveDemo: "Try it out!",
+      showcaseLink: "Showcase",
+
+      sourceCodeLinkLabel: "GitHub repository for project",
+      liveDemoLinkLabel: "Live demo for project",
+      showcaseLinkLabel: "Showcase for project",
+
+      archive: {
+        "site-prefeitura-nh": {
+          name: "Site da Prefeitura de Novo Hamburgo",
+          headline:
+            "🏛️ Um site institucional para a Prefeitura de Novo Hamburgo.",
+
+          description: [
+            `Este projeto foi desenvolvido como parte do meu estágio na ${strong("Prefeitura de Novo Hamburgo")}, onde tive a oportunidade de trabalhar com uma ${strong("equipe multidisciplinar incrível")}.`,
+
+            `O site é um ${strong("portal institucional")} que visa fornecer informações sobre a cidade, seus serviços e eventos. Ele foi projetado para ser ${strong("acessível")}, ${strong("intuitivo")} e ${strong("informativo")}, atendendo às necessidades da comunidade local.`,
+          ],
+        },
+
+        "site-turismo-nh": {
+          name: "Site Turismo de Novo Hamburgo",
+          headline: "🌍 Um site de turismo para a cidade de Novo Hamburgo.",
+
+          description: [
+            `Este projeto foi desenvolvido como parte do meu estágio na ${strong("Prefeitura de Novo Hamburgo")}, onde tive a oportunidade de trabalhar com uma ${strong("equipe multidisciplinar incrível")}.`,
+
+            `O site é um ${strong("portal de turismo")} que visa promover a cidade como um destino turístico, destacando suas atrações, eventos e cultura. Ele foi projetado para ser ${strong("acessível")}, ${strong("intuitivo")} e ${strong("informativo")}, atendendo às necessidades dos visitantes e moradores locais.
+          `,
+          ],
+        },
+
+        "site-iptu-nh": {
+          name: "Site IPTU Novo Hamburgo",
+          headline: "🏠 Site informativo sobre o IPTU em Novo Hamburgo.",
+
+          description: [
+            `Este projeto foi desenvolvido como parte do meu estágio na ${strong("Prefeitura de Novo Hamburgo")}, onde tive a oportunidade de trabalhar com uma ${strong("equipe multidisciplinar incrível")}.`,
+
+            `O site é um ${strong("portal informativo")} sobre o IPTU (Imposto Predial e Territorial Urbano) de Novo Hamburgo, fornecendo informações sobre como pagar, consultar débitos e acessar serviços relacionados. Ele foi projetado para ser ${strong("acessível")}, ${strong("intuitivo")} e ${strong("informativo")}, atendendo às necessidades dos cidadãos.`,
+          ],
+        },
+
+        "site-outubro-rosa": {
+          name: "Outubro Rosa",
+          headline: "🎗️ Um site de conscientização sobre o câncer de mama.",
+          description:
+            " Este projeto foi desenvolvido para promover a conscientização sobre o câncer de mama durante o mês de outubro, destacando a importância da detecção precoce e do apoio às pessoas afetadas pela doença.",
+        },
+
+        "site-novebro-azul": {
+          name: "Novebro Azul",
+          headline:
+            " 💙 Um site de conscientização sobre o câncer de próstata.",
+          description:
+            "Este projeto foi desenvolvido para promover a conscientização sobre o câncer de próstata durante o mês de novembro, destacando a importância da detecção precoce e do apoio às pessoas afetadas pela doença.",
+        },
+
+        "site-time-futebol": {
+          name: "Site Time Futebol",
+          headline: " ⚽ Um site para um time de futebol.",
+          description:
+            "Auxiliei e dei suporte no desenvolvimento de um site para um time de futebol local, com o objetivo de promover o time e suas atividades.",
+        },
+        "site-time-volei": {
+          name: "Site Time Vôlei",
+          headline: "🏐 Um site para um time de vôlei.",
+          description:
+            "Auxiliei e dei suporte no desenvolvimento de um site para um time de vôlei local, com o objetivo de promover o time e suas atividades.",
+        },
+        "site-ecommecer-acessorios": {
+          name: "Ecommecer de Acessórios",
+          headline: "🛒 Um site de e-commerce para uma Loja de acessórios.",
+          description:
+            "Auxiliei e dei suporte no desenvolvimento de um site de e-commerce para uma loja de acessórios, com o objetivo de promover os produtos e facilitar as compras online.",
+        },
+        "site-ecommecer-roupas-esportivas": {
+          name: "Ecommecer de Roupas Esportivas",
+          headline: "👗 Um site de e-commerce de roupas esportivas",
+          description:
+            "Auxiliei e dei suporte no desenvolvimento de um site de e-commerce de roupas esportivas, com o objetivo de promover os produtos e facilitar as compras online.",
+        },
+      },
+
+      next: {
+        name: "Use Link",
+        headline: "🔗 A self-hostable URL shortener and file sharing service.",
+        description: [
+          `While I usually work on many things at once, this is currently my next priority. 
+          I aim to develop it into a comprehensive service featuring a ${strong("modular architecture")}
+          that allows for ${bold("seamless integration")} with various cloud providers, database
+          systems, and file storage solutions.`,
+
+          `My primary motivation for this project is to further specialize my skills in 
+          ${strong("cloud infrastructure")}, ${strong("DevOps")}, and 
+          ${strong("backend development")}, as these are the areas I intend to focus in my career.`,
+        ],
+      },
+    },
+
+    about: {
+      name: "About",
+      title: "A little more about me",
+      id: "about",
+
+      bento: {
+        atWork: {
+          title: "At Work",
+          iconAlt: "Laptop Emoji",
+          approachAlt: "My approach with code",
+
+          text: [
+            `With nearly 7 years of coding experience, I approach my work with a 
+            careful ${strong("attention to detail")} and a ${strong("diligent")} attitude.
+            Through collaborative projects in college, I've become ${strong("well-versed in teamwork settings")}, 
+            although I'm equally comfortable and productive working independently.`,
+
+            `${bold("I like automating tasks")}, especially when efficiency is key. This habit
+            aligns well with my current ${strong("career focus")} on backend and cloud engineering,
+            as I enjoy building systems that ${strong("make work easier and faster")} for everyone.`,
+          ],
+        },
+
+        aboutMe: {
+          title: "My personal side",
+          dogEmojiText: "Dogs",
+          gameEmojiText: "Games",
+
+          iconAlt: "Waving Hand Emoji",
+          dogEmojiAlt: "Dog Emoji",
+          gamepadEmojiAlt: "Gamepad Emoji",
+          pizzaEmojiAlt: "Pizza Emoji",
+
+          text: [
+            `The 3 words that best define me are ${strong("resilient")}, ${strong("optimistic")}, and 
+            ${strong("independent")}. It's hard for me to give up on something I've set my mind to, 
+            and I always try to bring a positive outlook to every situation.`,
+
+            `I've always been ${strong("naturally curious")}, looking not only to learn new things,
+            but also to understand them. That's why I love asking questions and figuring out how things work.`,
+          ],
+        },
+
+        education: {
+          title: "Education",
+          iconAlt: "Graduation Cap Emoji",
+
+          items: {
+            gddv: {
+              title: "Bachelor's Degree in Game Design and Development",
+              location: "Girona, Spain",
+
+              url: "https://www.udg.edu/en/estudia/Oferta-formativa/Graus/Fitxes?IDE=1436&ID=3105G1315",
+              description: `Graduated from the ${link("https://www.udg.edu/en/", strong("University of Girona"), true)},
+              where I gained a comprehensive understanding of the theoretical and practical
+              aspects of my field. This included not only game development, but also  
+              ${strong("algorithms and data structures")}, ${strong("systems architecture")}, 
+              ${strong("databases")}, and other relevant areas.
+            `,
+            },
+          },
+        },
+
+        location: {
+          title: "Location",
+          iconAlt: "House Emoji",
+
+          where: `Based in ${strong("Barcelona")}`,
+        },
+      },
+    },
+
+    contact: {
+      name: "Contact",
+      title: "Shoot me a message",
+      id: "contact",
+
+      headline1: `Contact me at ${strong("any moment.")}`,
+      text1:
+        "Whether you have a question, a project in mind or just want to say hi, you can reach me at:",
+
+      headline2: `Thank you for ${strong("your time!")}`,
+      text2:
+        "If you prefer it, feel free to also get in touch through any of the following channels:",
+
+      formFill: `Fill this form and I will get back to you ${strong("as soon as possible")}`,
+      privacy: "I don't retain nor share any of your data.",
+      or: "OR",
+    },
+  },
+
+  footer: {
+    note: `
+      Built with {heart} by ${strong("Ivan Porto")} using ${link("https://astro.build", "Astro", true)},
+      ${link("https://svelte.dev", "Svelte", true)}, and ${link("https://react.dev", "React", true)}. 
+      Deployed on ${link("https://cloudflare.com", "Cloudflare", true)}.
+    `,
+  },
+} as const;
+
+/** The english strings for the client code.  */
+export const clientEnglish = {
+  // These are translation strings fed to dynamic content (client components).
+  // This means that they will end up in final the JavaScript bundle.
+
+  // To not include all the other translations in there (which are only used in the server),
+  // we need to create a separate object with only the client-side translations.
+  timezone: {
+    same: "We are on the same timezone",
+    ahead: (hours: string, minutes: string) =>
+      `${hours} ${minutes} ahead of you`,
+
+    behind: (hours: string, minutes: string) =>
+      `${hours} ${minutes} behind you`,
+  },
+
+  navigation: {
+    drawerTitle: "Menu",
+    drawerDescription: "Click the section you want to navigate to.",
+  },
+
+  contact: {
+    form: {
+      placeholders: {
+        name: "Bill Gates",
+        email: "bill.gates@microsoft.com",
+        subject: "Regarding your latest project...",
+        message: "I have a question about...",
+      },
+
+      labels: {
+        name: "Name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+      },
+
+      success: `Thanks for reaching out! I'll get back to you as soon as possible.`,
+      errors: {
+        "resend-rate-limit-exceeded": `Rate limit exceeded. Please try again later.`,
+        "rate-limit-exceeded": (retryAfter: string) =>
+          `It seems you sent an email recently. Give me some time to answer or try again ${retryAfter}.`,
+        "internal-error": `An internal error occurred. Please try again later.`,
+        "failed-to-determine-ip": `Failed to determine the IP of the request.`,
+        "turnstile-error": `An error occurred validating the Turnstile captcha. Please try resetting the form and submitting again.`,
+        "schema-error": `The form data is invalid. Please check the fields and try again.`,
+
+        "unknown": `An unknown error occurred. Please try again later.`,
+      },
+
+      validation: {
+        "email-invalid": `This address seems to be invalid.`,
+        "email-required": `An email address is required.`,
+        "name-required": `Your name is required.`,
+
+        "clearer-subject": (minChars: number) =>
+          `Provide a longer subject (more than ${minChars} characters).`,
+        "clearer-message": (minChars: number) =>
+          `Provide a longer message (more than ${minChars} characters).`,
+      },
+    },
+
+    persistingError:
+      "If the problem persists, contact me directly at my email.",
+    captchaTrouble:
+      "Are you having trouble with the captcha? Try reloading or clearing the cache.",
+    turnstileFailed: "Human Verification Failed",
+    contactSuccess: "Email sent",
+    contactError: "Something went wrong",
+
+    formButtons: {
+      submit: "Send",
+      reset: "Reset",
+    },
+  },
+};
