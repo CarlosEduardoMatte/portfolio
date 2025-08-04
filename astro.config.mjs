@@ -15,7 +15,7 @@ export default defineConfig({
   site: "https://ivanporto.io",
 
   srcDir: "source",
-  outDir: "build",
+  outDir: "dist",
   output: "static",
 
   compressHTML: true,
