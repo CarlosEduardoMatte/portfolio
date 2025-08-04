@@ -16,7 +16,6 @@
   const languages = {
     en: { label: "ENG", name: "English", buttonName: "Language" },
     es: { label: "ESP", name: "Español", buttonName: "Idioma" },
-    ca: { label: "CAT", name: "Català", buttonName: "Llengua" },
     pt: { label: "PT", name: "Português", buttonName: "Idioma" },
   };
 

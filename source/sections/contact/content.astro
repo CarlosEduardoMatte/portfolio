@@ -114,8 +114,8 @@ const t = translations.sections.contact;
     >
       <p
         class="mx-auto max-w-prose text-balance text-center font-header text-base font-medium tracking-wide text-foreground/80"
-        set:html={t.formFill}
-      />
+      >
+      </p>
 
       <div class="absolute inset-x-10 inset-y-20 -z-10">
         <ParticleCanvas
@@ -124,16 +124,16 @@ const t = translations.sections.contact;
         />
       </div>
 
-      <ContactForm
+      <!-- <ContactForm
         data-contact-form
         className="mb-6 mt-10 max-w-xl rounded-xl border border-primary/40 bg-[#0e0c0c] p-6 backdrop-blur-md sm:mx-auto"
         {locale}
         client:visible={{ rootMargin: "30%" }}
-      />
-      <small
+      /> -->
+      <!-- <small
         class="z-10 text-center text-xs font-semibold text-muted-foreground xl:pb-0"
         set:text={t.privacy}
-      />
+      /> -->
     </div>
   </div>
 </Section>

@@ -152,7 +152,7 @@ export const projects = [
     year: 2024,
     featured: false,
     relatedSkills: [
-      "Coigniter",
+      "Codeigniter",
       "PHP",
       "JavaScript",
       "Postgresql",
@@ -165,7 +165,7 @@ export const projects = [
     year: 2024,
     featured: false,
     relatedSkills: [
-      "Coigniter",
+      "Codeigniter",
       "PHP",
       "JavaScript",
       "Postgresql",
@@ -179,7 +179,7 @@ export const projects = [
     featured: false,
     relatedSkills: [
       "React",
-      "Coigniter",
+      "Codeigniter",
       "PHP",
       "JavaScript",
       "Postgresql",
@@ -193,7 +193,7 @@ export const projects = [
     featured: false,
     relatedSkills: [
       "React",
-      "Coigniter",
+      "Codeigniter",
       "PHP",
       "JavaScript",
       "Postgresql",
