@@ -9,192 +9,193 @@ import {
   styled,
 } from "../lib/helpers/html";
 
-/** The catalan strings for the website. */
 export const catalan = {
   meta: {
-    name: "Català",
-    locale: "ca",
-    code: "ca-ES",
+    name: "Português",
+    locale: "pt",
+    code: "pt-BR",
 
     routes: {
-      archive: "arxiu",
+      archive: "arquivo",
     },
 
-    title: "Ivan Porto | Desenvolupador de Software",
+    title: "Carlos E. Matte | Desenvolvedor de Full-stack",
     description: `
-      Hola! Em dic Ivan Porto i soc un desenvolupador de software especialitzat en la programació de videojocs, però també 
-      apassionat pel desenvolupament de qualsevol tipus de software. Hàbil tant en backend com en frontend. Fluid en català, castellà i anglès.
+      Olá! Eu sou Carlos E. Matte, um desenvolvedor de Full-stack especializado em desenvolvimento web Hábil tanto em backend quanto em frontend. Fluente em catalão, espanhol e inglês.
     `,
 
     ogAlt:
-      "Hola! Em dic Ivan Porto, Desenvolupador de Software - Una imatge amb un fons degradat fosc i un avatar",
+      "Olá! Eu sou Carlos E. Matte, Desenvolvedor de Full-stack - Uma imagem com fundo escuro em degradê e um avatar.",
   },
 
   misc: {
-    scrollToTop: "Torna a dalt",
-    language: "Llenguatge",
+    scrollToTop: "Voltar ao topo",
+    language: "Idioma",
     loveIconSr: "Amor",
-    newTab: "S'obre en una nova pestanya",
-    linkTo: "Enllaç a",
-  },
-
-  skills: {
-    "teamwork": "Treball en Equip",
-    "analytical-thinking": "Pensament Analític",
-    "communication": "Comunicació",
-  },
-
-  pages: {
-    notfound: {
-      meta: {
-        title:
-          "404: Página No Trobada - Ivan Porto | Desenvolupador de Software",
-        description: "La pàgina que estàs buscant no existeix.",
-      },
-
-      headline: "Ups! Sembla que t'has perdut.",
-      text: "La pàgina que estàs buscant no existeix.",
-      back: "Torna a la página principal",
-      label: "Pàgina Principal",
-    },
-
-    archive: {
-      meta: {
-        title: "Ivan Porto | Arxiu",
-        description:
-          "Una llista dels projectes més destacats en els quals he treballat.",
-      },
-
-      heading: "Arxiu de Projectes",
-      headline:
-        "Aquesta és una llista de tots els projectes en els quals he treballat i que considero que val la pena mencionar.",
-
-      whatAreShowcasesLg: `Els enllaços de ${quote(strong("Mostra"))} són projectes que no estan publicats, però es poden descarregar i provar.`,
-      whatAreShowcasesSm: `Els enllaços prefixats amb ${quote("*")} són ${strong("mostres")} (projectes que no estan publicats, però es poden descarregar i provar).`,
-
-      homepageLinkLabel: "Pàgina Principal",
-      homepageLinkText: "Tornar enrere",
-
-      table: {
-        headers: {
-          year: "Any",
-          project: "Projecte",
-          description: "Descripció",
-          builtWith: "Fet amb",
-          links: "Enllaços",
-        },
-
-        showcaseLink: "Mostra",
-        codeLink: "Codi",
-        liveLink: "Veure",
-      },
-    },
-  },
-
-  noscript: {
-    headline: `Ups! Sembla que ${strong("JavaScript")} està desactivat al teu navegador.`,
-    message: `Aquest lloc web el ${strong("requereix")} per tal que alguns continguts es mostrin correctament.
-      Si us plau, activa'l o descarta aquest missatge fent clic al botó de sota, però pot ser
-      que alguns elements no es mostrin adequadament.`,
-
-    dismissText: "Ho entenc, mostra'm la pàgina",
-    hint: small(
-      "En cas que t'ho estiguis preguntant, no, aquest botó no fa servir JavaScript.",
-    ),
+    newTab: "Abre em uma nova aba",
+    linkTo: "Link para",
   },
 
   socials: {
     github: "GitHub",
     linkedIn: "LinkedIn",
     xTwitter: "X (Twitter)",
-    resume: "Currículum",
+    resume: "Currículo",
     email: "Email",
     bento: "Bento",
     discord: "Discord",
     threads: "Threads",
-    emailAddress: "hola@ivanporto.io",
+    emailAddress: "carloseduardomatte656@gmail.com",
+  },
+
+  pages: {
+    notfound: {
+      meta: {
+        title:
+          "404: Página Não Encontrada - Carlos E. Matte | Desenvolvedor de Full-stack",
+        description: "A página que você procura não existe.",
+      },
+
+      headline: "Ops! Parece que você está perdido.",
+      text: "A página que você procura não existe.",
+      back: "Voltar para a página principal",
+      label: "Página Principal",
+    },
+
+    archive: {
+      meta: {
+        title: "Carlos E. Matte | Arquivo",
+        description:
+          "Uma lista com os projetos mais notáveis em que trabalhei.",
+      },
+
+      heading: "Arquivo de Projetos",
+      headline:
+        "Aqui estão listados todos os trabalhos em que atuei e considero dignos de menção.",
+
+      whatAreShowcasesLg: `${quote(strong("Showcase"))} são projetos que não estão online, mas podem ser baixados e testados.`,
+      whatAreShowcasesSm: `Os links prefixados com ${quote("*")} são ${strong("showcases")} (projetos que não estão online, mas podem ser baixados e testados).`,
+
+      homepageLinkLabel: "Página Inicial",
+      homepageLinkText: "Voltar",
+
+      table: {
+        headers: {
+          year: "Ano",
+          project: "Projeto",
+          description: "Descrição",
+          builtWith: "Feito com",
+          links: "Links",
+        },
+
+        showcaseLink: "Showcase",
+        codeLink: "Código",
+        liveLink: "Online",
+      },
+    },
+  },
+
+  noscript: {
+    headline: `Ops! Parece que o ${strong("JavaScript")} está desativado no seu navegador.`,
+    message: `Este site ${strong("requer isso")} para que alguns conteúdos ${strong("sejam exibidos corretamente")}.
+      Por favor, ative ou ignore esta mensagem clicando no botão abaixo, mas alguns elementos podem não ser exibidos como esperado.`,
+
+    dismissText: "Entendi, mostrar o site mesmo assim",
+    hint: small(
+      "Caso esteja se perguntando, não, este botão não usa JavaScript.",
+    ),
+  },
+
+  skills: {
+    "teamwork": "Trabalho em equipe",
+    "analytical-thinking": "Pensamento analítico",
+    "communication": "Comunicação",
   },
 
   sections: {
     hero: {
       headline: {
-        content: `Soc desenvolupador de ${strong("software")}.`,
+        content: `Sou um desenvolvedor de ${strong("Full-stack")}.`,
       },
 
-      greeting: "Hola! Em dic Ivan Porto",
-      introduction: `Especialitzat en desenvolupament de videojocs, però apassionat pel desenvolupament de qualsevol tipus de software. Amb
-        ${bold("6+&nbsp;anys d'experiència programant")}, actualment busco aprofitar els meus ${strong("4+&nbsp;anys d'experiència professional")} per
-        transicionar cap a una posició com a ${bold("desenvolupador backend")}.`,
+      greeting: "Olá! Eu sou Carlos E. Matte",
+      introduction: `
+        Especializado em desenvolvimento web Com
+        ${bold("mais de 6&nbsp;anos de experiência em programação")}, atualmente busco aproveitar meus 
+        ${strong("mais de 4&nbsp;anos de experiência profissional")} para migrar para o ${bold("desenvolvimento backend")}.
+      `,
 
-      introductionEmployed: `Especialitzat en desenvolupament de videojocs, però apassionat pel desenvolupament de qualsevol tipus de software. Treballo a 
-        ${link("https://adobe.com", strong(styled("Adobe", getAdobeLinkStyle())), true)} com a ${strong("desenvolupador de software júnior")}, una posició que 
-        vaig començar al novembre de 2024, contribuint a ${link("https://business.adobe.com/es/products/magento/magento-commerce.html", bold(styled("Adobe Commerce", getAdobeLinkStyle())))}.`,
+      introductionEmployed: `
+        Especializado em desenvolvimento web Atualmente 
+        trabalhando na ${link("https://adobe.com", strong(styled("Mave Tecnologia", getAdobeLinkStyle())))} como ${strong("Desenvolvedor Júnior de Full-stack")}, cargo
+        que iniciei em ferveiro de 2024.
+      `,
 
-      statusLabel: "Disponible per treballar",
+      statusLabel: "Disponível para trabalho",
     },
 
     experience: {
-      name: "Experiència",
-      id: "experiencia",
-      title: "A on he treballat",
+      name: "Experiência",
+      id: "experience",
+      title: "Onde trabalhei",
 
       jobs: {
         codelearn: {
-          title: "Professor de Programació per a Nens y Adolescents",
-          location: "Barcelona, Espanya",
-          at: "Codelearn",
+          title: "Desenvolvedor Full-stack - Estagiário",
+          location: "Brasil, Rio grande do Sul",
+          at: "Prefeitura de Novo Hamburgo",
 
           description: [
-            `${quote("No hi ha millor manera d'aprendre que ensenyant")}.`,
+            `${quote("Grandes equipes constroem grandes projetos.")}`,
 
-            `Guiava ${strong("a més de 20 estudiants")} setmanalment a través d'una àmplia gamma de conceptes d'informàtica,
-            des de programació bàsica fins a matèries avançades com ${strong("Python")}, ${strong("JavaScript")},
-            ${strong("SQL")}, ${strong("C++")}, i moltes més. La meva funció era ${bold("ajudar-los a navegar pels diferents cursos")}
-            disponibles en una plataforma interna d'${italic("e-learning")}, assistint-los quan trobaven dificultats i assegurant-me que
-            aprofitessin al màxim les eines d'aprenentatge interactiu disponibles.`,
+            `Tive a oportunidade de trabalhar com uma ${strong("equipe multidisciplinar incrível")}, composta por ${bold("designers UI/UX")}, analistas de teste,
+            desenvolvedores sêniores, e eu como ${strong("desenvolvedor full stack")}. Contribuí ativamente em projetos de impacto direto para a comunidade,
+            como o ${strong("portal oficial do município")}, o ${strong("portal do turismo")} e outras aplicações públicas.`,
 
-            `També vaig ${bold("participar en activitats extracurriculars d'ensenyament en escoles locals")},
-            ${strong("rebent comentaris positius de pares")}, com a resultat d'una millora en el rendiment acadèmic dels seus fills.`,
+            `Ao longo dessa experiência, ${bold("Aprimorei continuamente")} tanto minhas habilidades técnicas quanto minhas ${strong("soft skills")},
+            como ${strong("trabalho em equipe")}, ${strong("adaptabilidade")}, ${strong("criatividade")} e ${strong("proatividade")}.`,
           ],
         },
 
         gilab: {
-          title: "Desenvolupador de Jocs en Unity",
-          location: "Girona, Espanya",
-          at: "GILAB (Universitat de Girona)",
+          title: "Desenvolvedor Full-stack",
+          location: "Brasil, Rio grande do Sul",
+          at: "Mave Tecnologia",
 
           description: [
-            `Vaig passar d'una posició de becari a una posició principal en un laboratori de recerca
-            de la meva universitat, en col·laboració amb un hospital local. La meva funció era desenvolupar un
-            ${strong("joc de rehabilitació en realitat virtual")} per a pacients d'ictus. Utilitzant
-            les ulleres de RV Oculus Quest (ara Meta Quest) i les seves capacitats de seguiment de mans,
-            el nostre projecte buscava crear ${bold("experiències terapèutiques immersives")}, desenvolupant
-            una varietat d'exercicis dissenyats per abordar ${strong("problemes de mobilitat específics")}.`,
+            `Atualmente atuo como ${strong("desenvolvedor web full stack")} na empresa ${strong("Mave")}, 
+            onde contribuo com o desenvolvimento de soluções digitais completas, 
+            integrando ${bold("interfaces intuitivas")} com ${bold("sistemas robustos e eficientes")}.`,
 
-            `Aquest projecte també va servir com a ${strong("tesi per a la meva carrera")} i va ser reconegut amb la
-            ${bold("“Beca de Transferència, Innovació i Emprenedoria”")} (BTI) durant el període 2021-2022,
-            fruit d'una col·laboració entre la universitat i ${italic("Santander Universidades")}.`,
+            `Tenho experiência em todas as etapas do ciclo de desenvolvimento, sempre priorizando 
+            ${strong("performance")}, ${strong("usabilidade")} e ${strong("escalabilidade")} para garantir 
+            experiências consistentes e de alto nível.`,
+
+            `Já participei de ${bold("projetos de grande porte")}, incluindo ${strong("plataformas esportivas")} 
+            e ${strong("E-Commerce")}, o que ampliou minha visão sobre diferentes 
+            ${bold("modelos de negócio")} e os desafios técnicos de cada um.`,
           ],
         },
       },
     },
 
     projects: {
-      name: "Projectes",
-      id: "projectes",
-      title: "Alguns dels meus projectes preferits",
+      name: "Projetos",
+      id: "projects",
+      title: "Alguns dos meus projetos favoritos",
 
-      buttonReveal: "Quin és el meu pròxim projecte?",
-      seeMore: "Veure més projectes a",
-      archiveText: "l'arxiu",
+      buttonReveal: "O que vem a seguir?",
+      currentProject: "No que estou trabalhando atualmente?",
+      seeMore: "Veja mais dos meus projetos no",
+      archiveText: "arquivo",
 
-      sourceCode: "Repositori de GitHub",
-      liveDemo: "Prova-ho!",
-      showcaseLink: "Mostra",
+      sourceCode: "Código Fonte",
+      liveDemo: "Testar!",
+      showcaseLink: "Showcase",
 
-      sourceCodeLinkLabel: "Repositori de GitHub pel projecte",
-      liveDemoLinkLabel: "Enllaç públic pel projecte",
-      showcaseLinkLabel: "Mostra del projecte",
+      sourceCodeLinkLabel: "Repositório GitHub do projeto",
+      liveDemoLinkLabel: "Demo online do projeto",
+      showcaseLinkLabel: "Showcase do projeto",
 
       archive: {
         "site-prefeitura-nh": {
@@ -276,140 +277,128 @@ export const catalan = {
       next: {
         name: "Use Link",
         headline:
-          "🔗 Un servei autoallotjat per acurtar enllaços i compartir arxius.",
-
+          "🔗 Um encurtador de URL e serviço de compartilhamento de arquivos auto-hospedável.",
         description: [
-          `Tot i que acostumo a treballar en diversos projectes alhora, aquest serà la meva nova prioritat.
-          El meu objectiu és desenvolupar-lo com un servei complet amb una ${strong("arquitectura modular")} que
-          permeti una ${bold("integració senzilla")} amb diversos proveïdors de núvol, sistemes de
-          bases de dades i solucions d'emmagatzematge d'arxius.`,
+          `Embora eu geralmente trabalhe em várias coisas ao mesmo tempo, este é atualmente meu próximo foco.
+          Quero desenvolvê-lo como um serviço completo com uma ${strong("arquitetura modular")}
+          que permita ${bold("integração fácil")} com diversos provedores de nuvem, bancos de dados
+          e soluções de armazenamento de arquivos.`,
 
-          `La motivació principal per a aquest projecte és aprofundir els meus coneixements i habilitats en
-          ${strong("infraestructura en el núvol")}, ${strong("DevOps")} i ${strong("desenvolupament backend")},
-          ja que són les àrees en les quals vull centrar-me en el futur.`,
+          `Minha principal motivação para este projeto é me especializar ainda mais em
+          ${strong("infraestrutura em nuvem")}, ${strong("DevOps")} e
+          ${strong("desenvolvimento backend")}, pois são as áreas que pretendo focar na carreira.`,
         ],
       },
     },
 
     about: {
-      name: "Sobre Mi",
-      title: "Una mica més sobre mi",
-      id: "sobre-mi",
+      name: "Sobre",
+      title: "Um pouco mais sobre mim",
+      id: "about",
 
       bento: {
         atWork: {
-          title: "A la feina",
-          iconAlt: "Emoji d'un ordinador",
-          approachAlt: "El meu mètode de treball",
+          title: "No trabalho",
+          iconAlt: "Emoji de Laptop",
+          approachAlt: "Minha abordagem com código",
 
           text: [
-            `Amb gairebé 7 anys d'experiència en programació, abordo la meva feina amb una
-            ${strong("curosa atenció al detall")} i una actitud ${strong("diligent")}.
-            A través de projectes col·laboratius a la universitat, m'he tornat
-            ${strong("versat en entorns de treball en equip")}, tot i que em sento igualment còmode
-            i productiu treballant de forma independent.`,
+            `Com quase 4 anos de experiência como ${strong("desenvolvedor full stack")}, encaro meu trabalho com muita ${strong("atenção aos detalhes")} e uma mentalidade voltada à qualidade e escalabilidade. Já participei do desenvolvimento de ${strong("grandes plataformas de e-commerce")}, além de sites institucionais e sistemas personalizados para ${strong("diferentes perfis de clientes")}, como órgãos públicos, empresas privadas e profissionais autônomos.`,
 
-            `M'agrada ${bold("automatitzar tasques")}, especialment quan l'eficiència és clau. Aquest hàbit
-            es complementa bé amb el meu ${strong("enfocament professional")} actual en el desenvolupament 
-            backend i infraestructura en el núvol, ja que gaudeixo creant sistemes que
-            ${strong("faciliten i agilitzen el treball")} per a tothom.`,
+            `Tenho facilidade em transitar entre frontend e backend, mas meu maior foco está em construir soluções robustas, ${strong("bem estruturadas")} e de alto desempenho. Ao longo dos projetos, aprimorei minha capacidade de ${strong("entregar valor tanto em equipes multidisciplinares quanto de forma autônoma")}, com destaque para a automação de tarefas repetitivas, integração de APIs e otimização de fluxos. Estou constantemente em busca de aprimorar minhas habilidades.`,
           ],
         },
 
         aboutMe: {
-          title: "En l'àmbit personal",
-          dogEmojiText: "Gossos",
-          gameEmojiText: "Jocs",
+          title: "Meu lado pessoal",
+          dogEmojiText: "Cachorros",
+          gameEmojiText: "Jogos",
 
-          iconAlt: "Emoji d'una mà saludant",
-          dogEmojiAlt: "Emoji d'un gos",
-          gamepadEmojiAlt: "Emoji d'un comandament de videojocs",
-          pizzaEmojiAlt: "Emoji d'un tros de pizza",
+          iconAlt: "Emoji de Mão Acenando",
+          dogEmojiAlt: "Emoji de Cachorro",
+          gamepadEmojiAlt: "Emoji de Controle",
+          pizzaEmojiAlt: "Emoji de Pizza",
 
           text: [
-            `Les 3 paraules que millor em defineixen són ${strong("resilient")}, ${strong("optimista")} i
-            ${strong("independent")}. Em costa renunciar a alguna cosa que m'hagi proposat, i sempre
-            intento aportar una perspectiva positiva a cada situació.`,
+            `As 3 palavras que melhor me definem são ${strong("resiliente")}, ${strong("otimista")} e
+            ${strong("independente")}. É difícil eu desistir de algo que decidi fazer,
+            e sempre tento trazer uma visão positiva para cada situação.`,
 
-            `Sempre he sigut ${strong("naturalment curiós")}, buscant no només aprendre, sinó també entendre.
-            Per això m'agrada fer preguntes i descobrir com funcionen les coses.`,
+            `Sempre fui ${strong("naturalmente curioso")}, buscando não só aprender coisas novas,
+            mas também entendê-las. Por isso adoro fazer perguntas e descobrir como as coisas funcionam.`,
           ],
         },
 
         education: {
-          title: "Educació",
-          iconAlt: "Emoji d'un gorro de graduació",
+          title: "Educação",
+          iconAlt: "Emoji de Capelo",
 
           items: {
             gddv: {
-              title: "Grau en Disseny y Desenvolupament de Videojocs",
-              location: "Girona, Espanya",
+              title: "Bacharelado em Ciências da Computação",
+              location: "Brasil, Rio grande do Sul",
 
-              url: "https://www.udg.edu/ca/estudia/Oferta-formativa/Graus/Fitxes?IDE=1436&ID=3105G1315",
-              description: `Graduat per la ${link("https://www.udg.edu/ca/", strong("Universitat de Girona"), true)},
-              on vaig adquirir un domini sòlid dels aspectes teòrics i pràctics del meu camp. Això no només va incloure
-              desenvolupament de jocs, sinó també ${strong("algorismes i estructures de dades")},
-              ${strong("arquitectura de sistemes")}, ${strong("bases de dades")}, entre altres àrees rellevants.`,
+              url: "https://www.udg.edu/en/estudia/Oferta-formativa/Graus/Fitxes?IDE=1436&ID=3105G1315",
+              description: `Graduado pela ${link("https://www.cruzeirodosul.edu.br/", strong("Universidade Cruzeiro Do Sul"), true)},
+              onde adquiri uma compreensão abrangente dos aspectos teóricos e práticos da área. Isso incluiu não só desenvolvimento web, mas também
+              ${strong("algoritmos e estruturas de dados")}, ${strong("arquitetura de sistemas")},
+              ${strong("bancos de dados")} e outras áreas relevantes.
+            `,
             },
           },
         },
 
         location: {
-          title: "Ubicació",
-          iconAlt: "Emoji d'una casa",
+          title: "Localização",
+          iconAlt: "Emoji de Casa",
 
-          where: `Seu a ${strong("Barcelona")}`,
+          where: `${strong("Brasil")}, atualmente no ${strong("Rio Grande do Sul")}.`,
         },
       },
     },
 
     contact: {
-      name: "Contacte",
-      title: "Envia'm un missatge",
-      id: "contacte",
+      name: "Contato",
+      title: "Me envie uma mensagem",
+      id: "contact",
 
-      headline1: `Contacta'm ${strong("quan vulguis.")}`,
+      headline1: `Entre em contato comigo ${strong("a qualquer momento.")}`,
       text1:
-        "Si tens una pregunta, un projecte en ment, o simplement vols saludar, el meu correu és:",
+        "Seja para tirar uma dúvida, propor um projeto ou apenas dizer oi, você pode me encontrar em:",
 
-      headline2: `Moltes gràcies pel ${strong("teu temps!")}`,
+      headline2: `Obrigado pelo ${strong("seu tempo!")}`,
       text2:
-        "Si així ho prefereixes, no dubtis en contactar-me a través de qualsevol d'aquests canals:",
+        "Se preferir, também pode entrar em contato por qualquer um dos canais abaixo:",
 
-      formFill: `Emplena aquest formulari i em posaré en contacte amb tu ${strong("el més aviat possible")}`,
-      privacy: "No guardo ni comparteixo cap de les teves dades personals.",
-      or: "O",
+      formFill: `Preencha este formulário e retornarei ${strong("o mais rápido possível")}`,
+      privacy: "Não guardo nem compartilho nenhum dos seus dados.",
+      or: "OU",
     },
   },
 
   footer: {
     note: `
-      Fet amb {heart} per ${strong("Ivan Porto")} utilitzant ${link("https://astro.build", "Astro", true)},
-      ${link("https://svelte.dev", "Svelte", true)} i ${link("https://react.dev", "React", true)}. 
-      Desplegada a ${link("https://cloudflare.com", "Cloudflare", true)}.
+      Feito com {heart} por ${strong("Carlos E. Matte")} usando ${link("https://astro.build", "Astro", true)},
+      ${link("https://svelte.dev", "Svelte", true)}, e ${link("https://react.dev", "React", true)}.
+      Hospedado em ${link("https://cloudflare.com", "Cloudflare", true)}.
     `,
   },
 } as const;
 
-/** The catalan strings for the client code.  */
+/** As strings em português para o código cliente. */
 export const clientCatalan = {
-  // These are translation strings fed to dynamic content (client components).
-  // This means that they will end up in final the JavaScript bundle.
-
-  // To not include all the other translations in there (which are only used in the server),
-  // we need to create a separate object with only the client-side translations.
   timezone: {
-    same: "Estem dins la mateixa zona horària",
+    same: "Estamos no mesmo fuso horário",
     ahead: (hours: string, minutes: string) =>
-      `${hours} ${minutes} per davant teu`,
+      `${hours} ${minutes} à frente de você`,
 
     behind: (hours: string, minutes: string) =>
-      `${hours} ${minutes} per darrere teu`,
+      `${hours} ${minutes} atrás de você`,
   },
 
   navigation: {
-    drawerTitle: "Menú",
-    drawerDescription: "Clica la secció a la que vols anar",
+    drawerTitle: "Menu",
+    drawerDescription: "Clique na seção para navegar.",
   },
 
   contact: {
@@ -417,59 +406,53 @@ export const clientCatalan = {
       placeholders: {
         name: "Bill Gates",
         email: "bill.gates@microsoft.com",
-        subject: "Sobre el teu últim projecte...",
-        message: "Tinc una pregunta sobre...",
+        subject: "Sobre seu último projeto...",
+        message: "Tenho uma dúvida sobre...",
       },
 
       labels: {
-        name: "Nom",
-        email: "Correu",
-        subject: "Assumpte",
-        message: "Missatge",
+        name: "Nome",
+        email: "Email",
+        subject: "Assunto",
+        message: "Mensagem",
       },
 
-      success: "Gràcies per contactar-me! Et respondré tan aviat com pugui.",
+      success: `Obrigado pelo contato! Retornarei o mais breve possível.`,
       errors: {
-        "resend-rate-limit-exceeded": `S'ha superat el límit d'enviament. Si us plau, torna a intentar-ho més tard.`,
+        "resend-rate-limit-exceeded": `Limite de envio excedido. Por favor, tente novamente mais tarde.`,
         "rate-limit-exceeded": (retryAfter: string) =>
-          `Sembla que has enviat un correu recentment. Deixa'm temps per respondre o torna a intentar-ho ${retryAfter}.`,
+          `Parece que você enviou um email recentemente. Dê-me um tempo para responder ou tente novamente ${retryAfter}.`,
+        "internal-error": `Ocorreu um erro interno. Por favor, tente novamente mais tarde.`,
+        "failed-to-determine-ip": `Falha ao determinar o IP da requisição.`,
+        "turnstile-error": `Ocorreu um erro ao validar o captcha Turnstile. Tente redefinir o formulário e enviar novamente.`,
+        "schema-error": `Os dados do formulário são inválidos. Verifique os campos e tente novamente.`,
 
-        "internal-error": `S'ha produït un error intern. Si us plau, torna a intentar-ho més tard.`,
-        "failed-to-determine-ip": `No s'ha pogut determinar la IP de la sol·licitud.`,
-        "turnstile-error": `S'ha produït un error validant el captcha de Turnstile. Si us plau, intenta reiniciar el formulari i torna a enviar-lo.`,
-        "schema-error": `Les dades del formulari no són vàlides. Si us plau, comprova els camps i torna a intentar-ho.`,
-        "unknown": `S'ha produït un error desconegut. Si us plau, torna a intentar-ho més tard.`,
+        "unknown": `Ocorreu um erro desconhecido. Por favor, tente novamente mais tarde.`,
       },
 
       validation: {
-        "email-invalid": "Aquesta adreça sembla no ser vàlida.",
-        "email-required": "Es requereix un correu electrònic.",
-        "name-required": `Proporciona el teu nom.`,
+        "email-invalid": `Este endereço parece inválido.`,
+        "email-required": `Um endereço de email é obrigatório.`,
+        "name-required": `Seu nome é obrigatório.`,
 
         "clearer-subject": (minChars: number) =>
-          `Proporciona un assumpte més llarg (més de ${minChars} caràcters).`,
-
+          `Forneça um assunto mais detalhado (mais de ${minChars} caracteres).`,
         "clearer-message": (minChars: number) =>
-          `Proporciona un missatge més llarg (més de ${minChars} caràcters).`,
+          `Forneça uma mensagem mais detalhada (mais de ${minChars} caracteres).`,
       },
     },
 
     persistingError:
-      "Si el problema persisteix, contacta amb mi directament al meu correu.",
-
+      "Se o problema persistir, entre em contato diretamente pelo meu email.",
     captchaTrouble:
-      "Estàs tenint problemes amb el captcha? Intenta recarregar la pàgina o netejar la memòria cau.",
-
-    turnstileFailed: "Verificació del captcha fallida",
-    contactSuccess: "Missatge enviat",
-    contactError: "Alguna cosa ha sortit malament",
+      "Está com problemas no captcha? Tente recarregar ou limpar o cache.",
+    turnstileFailed: "Falha na verificação humana",
+    contactSuccess: "Email enviado",
+    contactError: "Algo deu errado",
 
     formButtons: {
       submit: "Enviar",
-      reset: "Esborrar",
+      reset: "Limpar",
     },
   },
 };
-
-
-
