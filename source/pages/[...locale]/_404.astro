@@ -56,17 +56,10 @@ const t = translations.pages.notfound;
       {t.text}
     </p>
 
-    <Link
-      class="group/back mt-8 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-      href={homeLink}
-      hreflang={locale}
-      label={t.label}
-    >
-      <Icon
-        name="lucide:arrow-left"
-        class="mr-2 size-[1.1em] transition-transform group-hover/back:-translate-x-1"
-      />
-      <span> {t.back} </span>
-    </Link>
+    <Icon
+      name="lucide:arrow-left"
+      class="mr-2 size-[1.1em] transition-transform group-hover/back:-translate-x-1"
+    />
+    <span> {t.back} </span>
   </div>
 </ErrorPage>
